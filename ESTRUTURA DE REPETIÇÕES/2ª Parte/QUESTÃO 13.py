@@ -15,7 +15,7 @@ porcentagem_homens_maiorque_1_82 = 0.0
 porcentagem_mulheres_maiorque_1_82 = 0.0
 
 try:
-    while(contador < 4):
+    while(contador < 50):
         contador += 1
         sexo = int(input(f'{contador}° ENTREVISTADO -> DIGITE [1] CASO SEJA HOMEM OU [2] CASO SEJA MULHER: '))
         if(sexo != 1 and sexo != 2):
