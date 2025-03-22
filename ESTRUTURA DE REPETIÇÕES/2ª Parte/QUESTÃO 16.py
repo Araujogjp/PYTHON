@@ -6,7 +6,7 @@ maiorpar = -1 * np.inf
 menorpar = np.inf
 maiorimpar = -1 * np.inf
 menorimpar = np.inf 
-while(contador < 6):
+while(contador < 300):
   try: 
     contador += 1
     n = float(input(f'{contador}ª NÚMERO - OBS: ELE TEM Q SER POSITIVO!: '))
