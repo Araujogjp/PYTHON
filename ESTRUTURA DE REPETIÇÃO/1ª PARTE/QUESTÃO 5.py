@@ -6,7 +6,6 @@ try:
     emp = 0.0
     desemp = 0.0
     total = 0
-
     while (contador < 10000):
         contador += 1
         verificar = int(input(f'({contador}) ENTREVISTADO: Digite [0] caso esteja desempregado e [1] caso esteja empregado: '))
@@ -18,7 +17,6 @@ try:
                 nao += 1
             else:
                 sim += verificar
-
     print(f'No total há: {nao} pessoas desempregadas')
     print(f'No total há: {sim} pessoas empregadas')
     total = sim + nao
