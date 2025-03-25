@@ -5,7 +5,7 @@ massa = 0
 taxa = 0.0
 contador = 0
 verificacao = 0
-while(contador < 2):
+while(contador < 500):
     try:
         contador += 1
         print('DIGITE [1] CASO O PACIENTE SEJA DIABÉTICO E [0] CASO O PACIENTE NÃO SEJA DIABÉTICO ')
