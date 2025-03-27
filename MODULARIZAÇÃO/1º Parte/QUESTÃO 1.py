@@ -1,3 +1,4 @@
+# QUESTÃO 3 DA LISTA
 # CRIAR A FUNÇÃO AQUI:
 import math 
 def arranjo(n, p): 
