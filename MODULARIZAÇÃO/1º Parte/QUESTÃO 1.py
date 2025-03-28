@@ -17,8 +17,10 @@ def combinacao(n, p):
     c = arranjo(n,p) / math.factorial(p)
     return c 
 
-""" 
-REUSIBILIDADE
-print(arranjo(5,2))
-print(combinacao(5,2))
-"""
+
+# MENU: REUSABILIDADE
+try: 
+  print(arranjo(5,2))
+  print(combinacao(5,2))
+except Exception as ERRO_EXCECAO:
+  print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO} ')
