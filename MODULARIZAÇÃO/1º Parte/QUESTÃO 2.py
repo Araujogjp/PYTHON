@@ -10,7 +10,7 @@ def ano(ano):
       
 # MENU: REUSABILIDADE
 verificao = int(input('INFORME UM ANO: '))
-if(verificao < 0):
+if(verificao <= 0):
   print('O ANO TEM QUE SER MAIOR QUE 0')
 else:
   bissexto = ano(verificao)
