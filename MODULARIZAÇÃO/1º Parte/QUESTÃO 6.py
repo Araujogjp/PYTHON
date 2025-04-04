@@ -15,7 +15,7 @@ def soma(n):
 def media(n):
   return soma(n) / 2
 
-try
+try:
   n = float(input('Digite o valor de n: '))
   funcao_a = f_a(n)
   funcao_b = f_b(n)
