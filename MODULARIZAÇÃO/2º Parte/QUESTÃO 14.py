@@ -1,3 +1,4 @@
+# QUESTÃO 11 DA LISTA
 def ano(verificar, numero):
     quociente = 0
     resto = 0
