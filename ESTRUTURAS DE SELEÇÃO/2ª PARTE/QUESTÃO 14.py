@@ -16,7 +16,7 @@ try:
     mp = round((av1+av2)/2, 1)
     if(mp >= 7):
       print(f'STATUS: APROVADO, MEDIA: {mp:.2f} ')
-    elif(mp > 3 and mp  7):
+    elif(mp > 3 and mp < 7):
       print(f'STATUS: RECUPERAÇÃO, MEDIA: {mp:.2f} )')
       pf = float(input('Digite a nota da prova final:  '))
       final = round((pf+mp)/2)
@@ -27,4 +27,4 @@ try:
     else:
       print(f'STATUS: REPROVADO, MEDIA:  {mp:.2f}')
 except Exception as ERRO_EXCECAO:
-  print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO} )
+  print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')

@@ -5,6 +5,7 @@ def c_imc(massa, h, sexo):
       return (0.95 * massa) / (h ** 2)
     else: 
       return (1.05 * massa) / (h ** 2)
+    
         
 # MENU: REUSABILIDADE
 q = 0
@@ -42,5 +43,6 @@ while(q < 5):
             print('OBESIDADE GRAU II')
           else:
             print('OBESIDADE GRAU III')
+      print(f'O IMC FOI DE {imc:.2f}')
   except Exception as ERRO_EXCECAO:
     print(f'ERRO DE EXCEÇÃO {ERRO_EXCECAO}')

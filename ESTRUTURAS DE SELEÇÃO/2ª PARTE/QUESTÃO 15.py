@@ -55,4 +55,4 @@ try:
     print(f'A média dos pares é: {mediapar:.2f}')
     print(f'A media dos impares é: {mediaimpar:.2f}')
 except Exception as ERRO_EXCECAO:
-  print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO} )
+  print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')

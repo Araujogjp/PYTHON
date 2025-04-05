@@ -17,7 +17,7 @@ try:
         print('O ANO TEM QUE SER MAIOR QUE O')
     else:
         numero = int(input('DIGITE [4, 100 OU 400]: '))
-        if(numero not in[4, 100, 400]): 
+        if(numero != 4 and numero != 100 and numero != 400): 
             print('O NÚMERO TEM QUE SER [4, 100 OU 400]')
         else:
             b = ano(verificar, numero)[0]
