@@ -21,4 +21,3 @@ while(q < 2):
             print(f'O TEMPO FOI DE {horas_f} HORAS + {minutos_f} MINUTOS + {segundos_f} SEGUNDOS')
     except Exception as ERRO_EXCECAO:
         print(f'ERRO DEEXCEÇÃO: {ERRO_EXCECAO}')
-print('.')

@@ -41,4 +41,3 @@ try:
         print(f'VOCÊ PAGARÁ {preco_f}')
 except Exception as ERRO_EXCECAO:
     print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
-print('.')
