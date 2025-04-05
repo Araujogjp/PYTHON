@@ -4,15 +4,16 @@ def fibonacci(n):
   ultimo = 0 
   penultimo = 1
   soma = 0
-  if(n >= 0):
+  if(n == 0):
     soma += ultimo
-  if(n >= 1):
+  if(n == 1):
     soma += penultimo
+  soma += penultimo
   for i in range(2, n + 1):
     proximo = ultimo + penultimo
-    soma += proximo
     ultimo = penultimo 
     penultimo = proximo
+    soma += proximo
   return soma 
 
 # MENU: REUSABILIDADE
