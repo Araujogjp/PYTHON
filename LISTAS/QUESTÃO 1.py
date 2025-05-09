@@ -1,6 +1,6 @@
+# CRIAR / RESETAR LISTAS
 func = []
 empresa = [] 
-
 
 # MODULARIZAR DADOS DE LEITURA: ?
 
@@ -43,20 +43,19 @@ def planosaude():
     try:
       opcao = int(input('[1] CASO POSSUA PLANO DE SAÚDE / [0] CASO NÃO TENHA: '))
       if(opcao == 1):
-        sim += 1
         return 'Tem plano de Saúde'
       elif(opcao == 0):
-        nao += 1
         return 'Não tem plano de Saúde'
       else: 
         print('[1] CASO TIVER PLANO / [0] CASO NÃO TENHA')
     except Exception as ERRO_EXCECAO:
       print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
 
-def porcetagemplano(sim, nao):
-  total = sim + nao
-  porcentagem = (sim / total ) * 100
-  return porcentagem
+def porcetagemplano(sim):
+  total = len(empresa)
+  if (total == 0):
+    return 0 
+  return (sim / total) * 100
 
 # LER SALÁRIO
 def lersalario():
@@ -70,10 +69,9 @@ def lersalario():
     except Exception as ERRO_EXCECAO:
       print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
 
-
-
 # MENU: PROGRAMA PRINCIPAL (MAIN)
 q = 0
+sim = 0
 while(q < 1):
   try:
      print(f'ENTRE COM OS DADOS DO {len(empresa) + 1}º FUNCIONÁRIO: ')
@@ -85,5 +83,9 @@ while(q < 1):
      func = [nome, cargo, mat, plano, salario]
      empresa.append(func)
      q += 1
+     if():
+      sim += 1
   except Exception as ERRO_EXCECAO:
     print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
+tem_plano = porcetagemplano(sim)
+print(f'A porcentagem de Funcionários que Possuem plano de Saúde é de: {tem_plano:.2f}%')
