@@ -1,91 +1,82 @@
 # CRIAR / RESETAR LISTAS
 func = []
-empresa = [] 
+empresa = []
 
+import numpy as np
 # MODULARIZAR DADOS DE LEITURA: ?
-
-# LER NOME
-def lernome():
+def lerNome():
   while True:
     try:
-      nome = input('NOME: ')
-      if(len(nome) <= 1):
-        print('ERRO: Escolha de novo')
+      nome = input('Nome: ')
+      if len(nome) <= 2:
+        print('ERRO: Escolha de Novo')
       else:
         break
-    except Exception as ERRO_EXCECAO:
-        print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
-        break
+    except:
+      print('ERRO: ESCOLHA DE NOVO')
   return nome
 
-# LER CARGO
-def lercargo():
+def lerCargo():
   while True:
     try:
-      cargo = (input('CARGO: '))
-      if(len(cargo) <= 3):
-        print('ERRO: ESCOLHA DENOVO')
+      cargo = input('Cargo: ')
+      if len(cargo) <= 3:
+        print('ERRO: Escolha de Novo')
       else:
         break
-    except Exception as ERRO_EXCECAO:
-      print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
-      break
+    except:
+      print('EROO: ESCOLHA DE NOVO')
   return cargo
 
-# SORTEAR MATRÍCULA
-import numpy
-def matricula():
-  return int(numpy.random.normal(10000, 1000))
+def sortMatricula():
+  std = 1000
+  mean = 10000
+  size = 1
+  mat = [valor for valor in (np.random.normal(mean, std, size))]
 
-# TEM PLANO OU NÃO
-def planosaude():
+
+def plano_de_saude(plano):
+  if plano == 1:
+    return 1
+  else:
+    return 0
+ 
+
+def lerSalario():
   while True:
     try:
-      opcao = int(input('[1] CASO POSSUA PLANO DE SAÚDE / [0] CASO NÃO TENHA: '))
-      if(opcao == 1):
-        return 'Tem plano de Saúde'
-      elif(opcao == 0):
-        return 'Não tem plano de Saúde'
-      else: 
-        print('[1] CASO TIVER PLANO / [0] CASO NÃO TENHA')
-    except Exception as ERRO_EXCECAO:
-      print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
-
-def porcetagemplano(sim):
-  total = len(empresa)
-  if (total == 0):
-    return 0 
-  return (sim / total) * 100
-
-# LER SALÁRIO
-def lersalario():
-  while True:
-    try:
-      salario = float(input('SALÁRIO: '))
-      if(salario < 1000):
-        print('ERRO: ESCOLHA DENOVO')
+      s = float(input(''))
+      if s < 1000:
+        print('ERRO: O SALÁRIO MÍNIMO DEVE SER DE 1000 R$')
       else:
-        return salario
-    except Exception as ERRO_EXCECAO:
-      print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
+        break
+    except:
+      print('ERRO: ESCOLHA DE NOVO')
+  return s
 
 # MENU: PROGRAMA PRINCIPAL (MAIN)
+print('--           Menu          --')
 q = 0
-sim = 0
-while(q < 1):
+while q < 2:
   try:
-     print(f'ENTRE COM OS DADOS DO {len(empresa) + 1}º FUNCIONÁRIO: ')
-     nome = lernome()
-     cargo = lercargo()
-     mat = matricula()
-     plano = planosaude()
-     salario = lersalario()
-     func = [nome, cargo, mat, plano, salario]
-     empresa.append(func)
-     q += 1
-     if():
-      sim += 1
+    q += 1
+    print(f'Entre com os dados do {len(empresa) + 1}º FUNCIONÁRIO')
+    nome = lerNome()
+    cargo = lerCargo()
+    mat = sortMatricula()
+    print('Digite [1] Caso tenha Plano de Sáude ou [0] Caso não tenha')
+    while True:
+      try:
+        plano = int(input('OPÇÃO: '))
+        if plano < 1 or plano > 0:
+          print('[1] Caso tenha Plano de Sáude ou [0] Caso não tenha')
+        else:
+          break
+      except:
+        print('ERRO: ESCOLHA DE NOVO')
+    s = lerSalario()
+    func = [nome, cargo, mat, plano, s]
+    empresa.append(func)
+    print('Funcionário cadastrado com sucesso')
   except Exception as ERRO_EXCECAO:
     print(f'ERRO DE EXCEÇÃO: {ERRO_EXCECAO}')
-tem_plano = porcetagemplano(sim)
-print(f'A porcentagem de Funcionários que Possuem plano de Saúde é de: {tem_plano:.2f}%')
