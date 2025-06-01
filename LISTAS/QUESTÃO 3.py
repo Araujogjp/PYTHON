@@ -1,5 +1,7 @@
+# CRIAR / RESETAR LISTAS
 atletas = []
 triatlon = []
+
 
 # MODULARIZAR DADOS DE LEITURA: ?
 def lerNome():
@@ -67,6 +69,7 @@ def segundos():
   return tempo_natacao, tempo_corrida, tempo_ciclismo
 
 
+# MENU: PROGRAMA PRINCIPAL (MAIN)
 while True:
   try:
     print(['DIGITE [0] PARA CADASTRAR UM ATLETA'])
@@ -86,6 +89,7 @@ while True:
       print('ATLETA CADASTRADO')
       break
     elif opcao == 1:
+      print('MELHOR ATLETA POR CATEGORIA')
       try:
         listaminNat = [valor[3][0] for valor in triatlon]
         minNat = min(listaminNat)
@@ -104,5 +108,29 @@ while True:
         break
       except: 
         print('NENHUM ATLETA CADASTRADO')
+    elif opcao == 2:
+      try:
+        print('MELHOR ATLETA')
+        listaMelhor = [sum(valor[3]) for valor in triatlon]
+        melhor = min(listaMelhor)
+        indice = listaMelhor.index(melhor)
+        print(f'NOME: {triatlon[indice][0]}')
+        print(f'PATROCINADOR(A): {triatlon[indice][1]}')
+        break
+      except:
+        print('NENHUM ATLETA CADASTRADO')
+    elif opcao == 3:
+      try:
+        print('ATLETAS QUE FICARAM ABAIXO DA MÉDIA')
+        lista_abaixo = [sum(valor[3]) for valor in triatlon]
+        media = sum(lista_abaixo) / len(triatlon)
+        abaixoMedia = [valor for valor in triatlon if sum(valor[3]) < media]
+        for valor in abaixoMedia:
+          print(f'NOME: {valor[0]} \nTEMPO: {sum(valor[3])} segundos\n')
+          break
+      except:
+        print('NENHUM ATLETA CADASTRADO')
+    else:
+      break
   except:
     print('ERRO')
