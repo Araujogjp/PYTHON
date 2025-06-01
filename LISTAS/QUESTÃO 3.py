@@ -2,11 +2,11 @@ atletas = []
 triatlon = []
 
 # MODULARIZAR DADOS DE LEITURA: ?
-def lerNomes():
+def lerNome():
   while True:
-    try:
-      nome = input('Nome: ')
-      if(len(nome) <= 2):
+    try:  
+      nome = input('NOME: ')
+      if len(nome) <= 2:
         print('ERRO, O NOME DEVE POSSUIR MAIS DE 2 CARACTÉRES')
       else:
         break
@@ -17,121 +17,92 @@ def lerNomes():
 def lerPatrocinador():
   while True:
     try:
-      patrocinador = input('Nome do Patrocinador: ')
+      patrocinador = input('PATROCINADOR: ')
       if len(patrocinador) <= 2:
-        print('ERRO, O NOME DEVE POSSUIR MAIS DE 2 CARACTÉRES')
+        print('ERRO, O NOME DO PATROCINADOR DEVE POSSUIR MAIS DE 2 CARACTÉRES')
       else:
         break
     except:
       print('ERRO')
   return patrocinador
 
-def ano_Nasc():
+def dataNascimento():
   while True:
     try:
       ano = int(input('ANO DE NASCIMENTO: '))
       if ano < 1970 or ano > 2005:
-        print('COMPETIDORES DEVEM TER ENTRE 20 E 55 ANOS')
+        print('ERRO => COMPETIÇÃO DE 20 ATÉ 55 ANOS')
       else:
-        break
+        mes = int(input('MÊS DE NASCIMENTO: '))
+        if mes < 1 or mes > 12:
+          print('[1 ATÉ 12]')
+        else:
+          dia = int(input('DIA DE NASCIMENTO: '))
+          if dia < 1 or dia > 31:
+            print('[DIA 1 ATÉ DIA 31]')
+          else:
+            break
     except:
       print('ERRO')
-  return ano
+  return ano, mes, dia
 
-def mes_Nasc():
+def segundos():
   while True:
     try:
-      mes = int(input('MES DE NASCIMENTO: '))
-      if mes < 1 or mes > 12:
-        print('ERRO, MESES DEVEM ESTAR ENTRE 1 E 12')
+      tempo_natacao = float(input('TEMPO(SEGUNDOS) NA CATEGORIA NATAÇÃO: '))
+      if tempo_natacao <= 0:
+        print('ERRO => TEMPO TEM QUE SER MAIOR QUE 0')
       else:
-        break
+        tempo_corrida = float(input('TEMPO(SEGUNDOS) NA CATEGORIA CORRIDA: '))
+        if tempo_corrida <= 0:
+          print('ERRO => TEMPO TEM QUE SER MAIOR QUE 0')
+        else:
+          tempo_ciclismo = float(input('TEMPO(SEGUNDOS) NA CATEGORIA CICLISMO: '))
+          if tempo_ciclismo <= 0:
+            print('ERRO => TEMPO TEM QUE SER MAIOR QUE 0')
+          else:
+            break
     except:
       print('ERRO')
-  return mes
-
-def dia_Nasc():
-  while True:
-    try:
-      dia = int(input('DIA DE NASCIMENTO: '))
-      if dia < 1 or dia > 31:
-        print('ERRO, OS DIAS VÃO DE 1 ATÉ 31')
-      else:
-        break
-    except:
-      print('ERRO')
-  return dia
-
-def natacao():
-  while True:
-    try:
-      segundos_natacao = float(input('NATAÇÃO => TEMPO(SEGUNDOS): '))
-      if segundos_natacao <= 0:
-        print('ERRO')
-      else:
-        break
-    except:
-      print('ERRO')
-  return segundos_natacao
-
-def corrida():
-  while True:
-    try:
-      segundos_corrida = float(input('CORRIDA => TEMPO(SEGUNDOS): '))
-      if segundos_corrida <= 0:
-        print('ERRO')
-      else:
-        break
-    except:
-      print('ERRO')
-  return segundos_corrida
-
-def ciclismo():
-  while True:
-    try:
-      segundos_ciclismo = float(input('CICLISMO => TEMPO(SEGUNDOS): '))
-      if segundos_ciclismo <= 0:
-        print('ERRO')
-      else:
-        break
-    except:
-      print('ERRO')
-  return segundos_ciclismo
+  return tempo_natacao, tempo_corrida, tempo_ciclismo
 
 
-# MENU: PROGRAMA PRINCIPAL (MAIN)
 while True:
   try:
-    print('MENU')
-    print('[DIGITE[0] PARA CADASTRAR UM ATLETA]')
-    print('[DIGITE[1] PARA EXIBIR OS MELHORES ATLETAS POR CATEGORIA]')
-    print('[DIGITE[2] PARA EXIBIR O MELHOR ATLETA JUNTANDO TODAS AS CATEGORIAS]')
-    print('[DIGITE[3] PARA EXIBIR ATLETAS QUE FORAM ABAIXO DA MÉDIA]')
-    print('[DIGITE OUTRO NÚMERO QUALQUER PARA SAIR DO PROGRAMA]')
+    print(['DIGITE [0] PARA CADASTRAR UM ATLETA'])
+    print('[DIGITE [1] PARA EXIBIR OS MELHORES TEMPO DE CADA CATEGORIA]')
+    print('[DIGITE [2] PARA EXIBIR O MELHOR ATLETA COM O MELHOR ATLETA]')
+    print('[DIGITE [3] PARA EXIBIR ATLETAS QUE FIZERAM TEMPO ABAIXO DA MÉDIA]')
+    print('[DIGITE [QUALQUER OUTRO NÚMERO PARA SAIR DO PROGRAMA]]')
     opcao = int(input('OPÇÃO: '))
     if opcao == 0:
-      nome = lerNomes()
+      print(f'CADASTRAR {len(triatlon) + 1}º ATLETA: ')
+      nome = lerNome()
       patrocinador = lerPatrocinador()
-      ano = ano_Nasc()
-      mes = mes_Nasc()
-      dia = dia_Nasc()
-      segundos_natacao = natacao()
-      segundos_corrida = corrida()
-      segundos_ciclismo = ciclismo()
-      atletas = [nome, patrocinador,ano, mes, dia, segundos_natacao, segundos_corrida, segundos_ciclismo]
+      dataNasc = dataNascimento()
+      categorias = segundos()
+      atletas = [nome, patrocinador, dataNasc, categorias]
       triatlon.append(atletas)
+      print('ATLETA CADASTRADO')
       break
     elif opcao == 1:
-      melhor_tempo_n = [valor for valor in triatlon if valor[5] < ]
-      for valor in melhor_tempo_n:
-        print(f'Nome: {valor[0]}')
-      melhor_tempo_corrida = [valor for valor in triatlon if valor[6] < ]
-      for valor in melhor_tempo_corrida: 
-        print(f'Nome: {valor[0]}')
-      melhor_tempo_ci = [valor for valor in triatlon if valor[7] < ]
-      for valor in melhor_tempo_ci:
-        print(f'Nome: {valor[0]}')
-    else:
-      break
+      try:
+        listaminNat = [valor[3][0] for valor in triatlon]
+        minNat = min(listaminNat)
+        indiceNat = listaminNat.index(minNat)
+        #
+        listaminCor = [valor[3][1] for valor in triatlon]
+        minCor = min(listaminCor)
+        indiceCor = listaminCor.index(minCor)
+        #
+        listaminCic = [valor[3][2] for valor in triatlon]
+        minCic = min(listaminCic)
+        indiceCic = listaminCic.index(minCic)
+        print(f'MELHOR TEMPO DE NATAÇÃO: {triatlon[indiceNat][0]} com {triatlon[indiceNat][3][0]} segundos')
+        print(f'MELHOR TEMPO DE CORRIDA: {triatlon[indiceCor][0]} com {triatlon[indiceCor][3][1]} segundos')
+        print(f'MELHOR TEMPO DE CICLISMO: {triatlon[indiceCor][0]} com {triatlon[indiceCor][3][2]} segundos')
+        break
+      except: 
+        print('NENHUM ATLETA CADASTRADO')
   except:
     print('ERRO')
